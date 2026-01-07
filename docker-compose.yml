@@ -26,13 +26,13 @@ services:
       dockerfile: Dockerfile
     container_name: todo-backend
     environment:
-      PORT: 5000
+      PORT: 5001
       DB_HOST: database
       DB_USER: root
       DB_PASSWORD: rootpassword
       DB_NAME: tododb
     ports:
-      - "5000:5000"
+      - "5001:5001"
     depends_on:
       database:
         condition: service_healthy
@@ -47,7 +47,7 @@ services:
       dockerfile: Dockerfile
     container_name: todo-frontend
     environment:
-      REACT_APP_API_URL: http://localhost:5000/api
+      REACT_APP_API_URL: http://localhost:5001/api
     ports:
       - "3000:3000"
     depends_on:
